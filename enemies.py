@@ -18,7 +18,8 @@ class Enemies:
     def dead(self):
         if self.live <= 0:
             self.D_list.remove(self)
-
+            
+    #move to player||Px - player X, Py - player y
     def move(Px, Py):
         if self.x > Px:
             self.x -= self.speed
