@@ -2,7 +2,6 @@ import pygame
 pygame.init()
 w, h = 1000, 980
 
-player_R = 12
 player_R = 8
 player_X, player_Y = w/2, h/2
 
