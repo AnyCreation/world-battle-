@@ -19,6 +19,17 @@ class Enemies:
         if self.live <= 0:
             self.D_list.remove(self)
 
+    def move(Px, Py):
+        if self.x > Px:
+            self.x -= self.speed
+        elif self.x < Px:
+            self.x += self.speed
+
+        if self.y > Px:
+            self.y -= self.speed
+        elif self.y < Px:
+            self.y += self.speed
+
 
     def draw(self):
         pygame.draw.rect(self.window, (130, 0, 0), self.rect)
