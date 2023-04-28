@@ -9,7 +9,7 @@ def hp(window, live):
     zh = 15
     zw = live * 4 
     #200
-    pygame.draw.rect(window, (35, 35, 35), (10, 10, 25, 248))
+    pygame.draw.rect(window, (35, 35, 35), (10, 10, 25, zw + 6))
     pygame.draw.rect(window, (120, 40, 40), (15, 15, zh, zw))
 
     hp = str(live)
