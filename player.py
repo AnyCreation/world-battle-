@@ -5,9 +5,10 @@ w, h = 1000, 980
 player_R = 8
 player_X, player_Y = w/2, h/2
 
-def calizia(window, x, y):
+
+def calizia(x, y):
     rect = pygame.Rect(x, y, player_R + player_R/2, player_R + player_R/2)
-    return pygame.draw.rect(window, (239, 197, 53), rect)
+    return rect
 
 
 def t(window, x, y, r):
@@ -15,7 +16,7 @@ def t(window, x, y, r):
     return pygame.draw.circle(window, (239, 197, 53), (x, y), r)
 
 def collide(re, ene):
-    if re.collidepoint(ene.rect):
+    if re.collidepoint(ene.center):
         return True
     else:
         return False
