@@ -2,6 +2,7 @@ import pygame, sys
 import random
 import Alldecorations
 import player, enemies
+import HPARMOR
 
 pygame.init()
 w, h = 1000, 980
@@ -11,18 +12,19 @@ clock = pygame.time.Clock()
 
 list_grass = Alldecorations.grass(320, wind)
 list_tree = Alldecorations.tree(150, wind)
-#list_enemy = Alldecorations.enemy(45, wind)
+
 enemy = []
 
 speed = 2
-
 
 En_speed = 0.95
 
 for me in range(14):
     enemy.append(enemies.calizia(random.randint(0, w), random.randint(0, h), 10))
 
-live = 25
+live = 30
+ar = 12
+
 
 run = True
 while run:
@@ -38,7 +40,7 @@ while run:
 
     for touch in enemy:
         if player.collide(Prect, touch):
-            live -= 1
+            live -= (0.125 / (ar/4))
             if live <= 0:
                 run = False
             
@@ -72,6 +74,9 @@ while run:
         player.player_Y -= speed
     elif keys[pygame.K_s] and player.player_Y <= h - player.player_R*2:
         player.player_Y += speed
+
+    HPARMOR.hp(wind, live * 2)
+    HPARMOR.armor(wind, ar)
 
         
     for event in pygame.event.get():
