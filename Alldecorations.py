@@ -1,6 +1,7 @@
 import random
 import pygame
 import decorations
+import enemies
 
 w, h = 1000, 980
 #wind = pygame.display.set_mode((w, h))
@@ -22,6 +23,19 @@ def tree(i, window):
         tree.append([s, t, t2])
 
     return tree
+
+#ENEMIES
+
+def enemy(i, window):
+    enemy = []
+    if len(enemy) < i:
+        for create in range(1, i + 1):
+            En = enemies.Enemies(window, random.randint(0, w),
+                                 random.randint(0, h), 10, 8, 41, enemy)
+
+            enemy.append(En)
+
+    return enemy
 
 if __name__ == "__main__":
     print(tree(6, wind))
