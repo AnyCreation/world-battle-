@@ -13,3 +13,9 @@ def calizia(window, x, y):
 def t(window, x, y, r):
     rect = pygame.Rect(x, y, player_R, player_R)
     return pygame.draw.circle(window, (239, 197, 53), (x, y), r)
+
+def collide(re, ene):
+    if re.collidepoint(ene.rect):
+        return True
+    else:
+        return False
