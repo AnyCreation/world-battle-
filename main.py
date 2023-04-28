@@ -22,7 +22,7 @@ En_speed = 0.95
 for me in range(14):
     enemy.append(enemies.calizia(random.randint(0, w), random.randint(0, h), 10))
 
-live = 30
+live = 38
 ar = 12
 
 
