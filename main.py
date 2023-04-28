@@ -22,16 +22,26 @@ En_speed = 0.95
 for me in range(14):
     enemy.append(enemies.calizia(random.randint(0, w), random.randint(0, h), 10))
 
+live = 25
 
-while True:
+run = True
+while run:
     clock.tick(80)
     wind.fill((0, 180, 0))
     
     for All_grass in list_grass:
         All_grass.draw()
-        
-    player.calizia(wind, player.player_X, player.player_Y)
+
+    Prect = player.calizia(player.player_X, player.player_Y)  
+    pygame.draw.rect(wind, (239, 197, 53), Prect)
     player.t(wind, player.player_X + player.player_R / 1.3, player.player_Y + player.player_R / 1.3, player.player_R)
+
+    for touch in enemy:
+        if player.collide(Prect, touch):
+            live -= 1
+            if live <= 0:
+                run = False
+            
 
     #print(enemy)
     for rect in enemy:
